@@ -857,6 +857,11 @@ fn read_i(parser: &mut Parser) {
         };
 
         if command.is_empty() {
+            parser.set_one(
+                ENV_CMD_DURATION,
+                ParserEnvSetMode::new(EnvMode::UNEXPORT),
+                L!("0").to_owned(),
+            );
             continue;
         }
 
